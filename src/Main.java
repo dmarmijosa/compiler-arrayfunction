@@ -10,5 +10,13 @@ public class Main {
         for (Token token : tokens) {
             System.out.println(token);
         }
+
+        SemanticAnalyzer semanticAnalyzer = new SemanticAnalyzer(tokens);
+        try {
+            semanticAnalyzer.analyze();
+            System.out.println("Semantic analysis passed.");
+        } catch (RuntimeException e) {
+            System.err.println("Semantic analysis error: " + e.getMessage());
+        }
     }
 }
